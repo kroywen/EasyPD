@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    
+    <include android:id="@+id/title" layout="@layout/titlebar" />
+        
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scaleType="fitXY"
+        android:layout_below="@+id/title"
+        android:src="@drawable/top_shadow" />
+    
+    <ScrollView 
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+		android:fadingEdge="none"
+		android:layout_below="@+id/title">
+        
+    <LinearLayout 
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+    
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:background="#434343"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:textColor="@android:color/white"
+        android:text="@string/support" />
+    
+    <TextView
+        android:id="@+id/contactUs"
+        style="@style/AboutListItem"
+        android:drawableLeft="@drawable/contact_us_icon"
+        android:text="@string/contact_us" />
+    <View style="@style/ListDivider" />
+    
+    <TextView
+        android:id="@+id/visitWebsite"
+        style="@style/AboutListItem"
+        android:drawableLeft="@drawable/visit_site_icon"
+        android:text="@string/visit_our_website" />
+    <View style="@style/ListDivider" />
+    
+    <!-- 
+    <TextView
+        android:id="@+id/rateApp"
+        style="@style/AboutListItem"
+        android:drawableLeft="@drawable/star"
+        android:text="@string/rate_this_application" />
+    <View style="@style/ListDivider" />
+     -->
+    
+    <TextView
+        android:id="@+id/reportBug"
+        style="@style/AboutListItem"
+        android:drawableLeft="@drawable/bug_icon"
+        android:text="@string/report_a_bug" />
+    <View style="@style/ListDivider" />
+    
+    <TextView
+        android:id="@+id/tellFriend"
+        style="@style/AboutListItem"
+        android:drawableLeft="@drawable/contact_us_icon"
+        android:text="@string/tell_a_friend" />
+    
+    <!-- 
+    <TextView
+        android:id="@+id/watchVideo"
+        style="@style/AboutListItem"
+        android:drawableLeft="@drawable/video"
+        android:text="@string/watch_video_tutorial" />
+     -->
+    
+     <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:background="#434343"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:textColor="@android:color/white"
+        android:text="@string/more_apps" />
+    
+    <LinearLayout android:id="@+id/peGeek" style="@style/OtherAppWrapper" android:tag="@string/pe_geek_link">
+        <ImageView style="@style/OtherAppImage" android:src="@drawable/pe_geek" />
+        <LinearLayout style="@style/OtherAppInner">
+            <TextView style="@style/OtherAppTitle" android:text="@string/pe_geek" />
+            <TextView style="@style/OtherAppDescription" android:text="@string/pe_geek_desc" />
+        </LinearLayout>
+    </LinearLayout>
+    <View style="@style/ListDivider" />
+    
+    <LinearLayout android:id="@+id/fitnessTests" style="@style/OtherAppWrapper" android:tag="@string/fitness_tests_link">
+        <ImageView style="@style/OtherAppImage" android:src="@drawable/fitness_tests" />
+        <LinearLayout style="@style/OtherAppInner">
+            <TextView style="@style/OtherAppTitle" android:text="@string/fitness_tests" />
+            <TextView style="@style/OtherAppDescription" android:text="@string/fitness_tests_desc" />
+        </LinearLayout>
+    </LinearLayout>
+    <View style="@style/ListDivider" />
+    
+    <LinearLayout android:id="@+id/peGames" style="@style/OtherAppWrapper" android:tag="@string/pe_games_link">
+        <ImageView style="@style/OtherAppImage" android:src="@drawable/pe_games" />
+        <LinearLayout style="@style/OtherAppInner">
+            <TextView style="@style/OtherAppTitle" android:text="@string/pe_games" />
+            <TextView style="@style/OtherAppDescription" android:text="@string/pe_games_desc" />
+        </LinearLayout>
+    </LinearLayout>
+    <View style="@style/ListDivider" />
+    
+    <LinearLayout android:id="@+id/sportsRules" style="@style/OtherAppWrapper" android:tag="@string/sports_rules_link">
+        <ImageView style="@style/OtherAppImage" android:src="@drawable/sports_rules" />
+        <LinearLayout style="@style/OtherAppInner">
+            <TextView style="@style/OtherAppTitle" android:text="@string/sports_rules" />
+            <TextView style="@style/OtherAppDescription" android:text="@string/sports_rules_desc" />
+        </LinearLayout>
+    </LinearLayout>
+    <View style="@style/ListDivider" />
+    
+    <LinearLayout android:id="@+id/swimGames" style="@style/OtherAppWrapper" android:tag="@string/swim_games_link">
+        <ImageView style="@style/OtherAppImage" android:src="@drawable/swim_games" />
+        <LinearLayout style="@style/OtherAppInner">
+            <TextView style="@style/OtherAppTitle" android:text="@string/swim_games" />
+            <TextView style="@style/OtherAppDescription" android:text="@string/swim_games_desc" />
+        </LinearLayout>
+    </LinearLayout>
+    <View style="@style/ListDivider" />
+    
+    <LinearLayout android:id="@+id/easyPortfolio" style="@style/OtherAppWrapper" android:tag="@string/easy_portfolio_link">
+        <ImageView style="@style/OtherAppImage" android:src="@drawable/easy_portfolio" />
+        <LinearLayout style="@style/OtherAppInner">
+            <TextView style="@style/OtherAppTitle" android:text="@string/easy_portfolio" />
+            <TextView style="@style/OtherAppDescription" android:text="@string/easy_portfolio_desc" />
+        </LinearLayout>
+    </LinearLayout>
+    <View style="@style/ListDivider" />
+    
+    <LinearLayout android:id="@+id/easyAssessment" style="@style/OtherAppWrapper" android:tag="@string/easy_assessment_link">
+        <ImageView style="@style/OtherAppImage" android:src="@drawable/easy_assessment" />
+        <LinearLayout style="@style/OtherAppInner">
+            <TextView style="@style/OtherAppTitle" android:text="@string/easy_assessment" />
+            <TextView style="@style/OtherAppDescription" android:text="@string/easy_assessment_desc" />
+        </LinearLayout>
+    </LinearLayout>
+    
+    </LinearLayout>
+    </ScrollView>
+    
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scaleType="fitXY"
+        android:layout_alignParentBottom="true"
+        android:src="@drawable/bottom_shadow" />
+    
+</RelativeLayout>

@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">EasyPD</string>
+    <string name="add_record">Add Record</string>
+    <string name="new_record">New Record</string>
+    <string name="add">Add</string>
+    <string name="activity">Activity</string>
+    <string name="location">Location</string>
+    <string name="external_training">External Training</string>
+    <string name="internal_training">Internal Training</string>
+    <string name="select_action">Select Action</string>
+    <string name="select_option">Select option:</string>
+    <string name="take_photo">Take Photo</string>
+    <string name="select_from_library">Select From Library</string>
+    <string name="remove_photo">Remove Photo</string>
+    <string name="cancel">Cancel</string>
+    <string name="success">Success</string>
+    <string name="record_added">Record Added.</string>
+    <string name="record_not_added">Something wrong. Record Not Added.</string>
+    <string name="pd_records">PD Records</string>
+    <string name="viewing">Viewing: %1$s</string>
+    <string name="date">Date</string>
+    <string name="duration">Duration</string>
+    <string name="internal">Internal</string>
+    <string name="external">External</string>
+    <string name="pd">PD</string>
+    <string name="hour">hour</string>
+    <string name="hours">hours</string>
+    <string name="min">min</string>
+    <string name="mins">mins</string>
+    <string name="records">Records</string>
+    <string name="internal_trainings">Internal Trainings</string>
+    <string name="external_trainings">External Trainings</string>
+    <string name="all">All</string>
+    <string name="between_dates">Between Date</string>
+    <string name="view">View:</string>
+    <string name="from">From</string>
+    <string name="to">To</string>
+    <string name="show">Show</string>
+    <string name="sort">Sort</string>
+    <string name="asc">ASC</string>
+    <string name="desc">DESC</string>
+    <string name="type">Type</string>
+    <string name="select_method">Select Method:</string>
+    <string name="pd_hours">PD Hours</string>
+    <string name="you_currently_have">You currently have</string>
+    <string name="prof_dev_time_completed">Professional Development\nTime Completed</string>
+    <string name="about">About</string>
+    <string name="ok">OK</string>
+    <string name="error">Error</string>
+    <string name="activity_name_empty">Please enter activity name</string>
+    <string name="done">Done</string>
+    <string name="start_date">Start Date</string>
+    <string name="importing">Importing&#8230;</string>
+    <string name="add_image_error">Error while saving image</string>
+    <string name="edit">Edit</string>
+    <string name="delete">Delete</string>
+    <string name="export">Export</string>
+    <string name="no_records">No records to export</string>
+    <string name="no_connection">No internet connection</string>
+    <string name="export_to_dropbox">Export to dropbox?</string>
+    <string name="uploading">Uploading&#8230;</string>
+    <string name="upload_error">An error occurred while uploading files</string>
+    <string name="upload_pattern">Uploading %1$s\n%2$s out of %3$s</string>
+    <string name="upload_success">Records have been uploaded successfuly</string>
+    <string name="event_type">Event Type</string>
+    <string name="description">Description</string>
+    
+    <string name="more_apps">More Apps</string>
+    <string name="support">Support</string>
+    <string name="contact_us">Contact Us</string>
+    <string name="visit_our_website">Visit Our Website</string>
+    <string name="rate_this_application">Rate This Application</string>
+    <string name="report_a_bug">Report A Bug</string>
+    <string name="tell_a_friend">Tell A Friend</string>
+    <string name="watch_video_tutorial">Watch Video Tutorial</string>
+    <string name="email_app_select">Select Email Application</string>
+    
+    <string name="pe_geek">The PE Geek</string>
+    <string name="fitness_tests">Fitness Tests</string>
+    <string name="pe_games">PE Games</string>
+    <string name="sports_rules">Sports Rules</string>
+    <string name="swim_games">SwimGames</string>
+    <string name="easy_portfolio">Easy Portfolio</string>
+    <string name="easy_assessment">Easy Assessment</string>
+    
+    <string name="pe_geek_desc">The PE Geek app is the one stop shop for teachers interested in utilising emerging technologies within Physical Education.</string>
+    <string name="fitness_tests_desc">Fitness Tests is the quick, easy handbook guide for PE teachers, sports coaches, personal trainers or anyone looking to measure their fitness.</string>
+    <string name="pe_games_desc">PE Games is the premier app for PE Teachers on the app store, containing over 100 games in a variety of categories.</string>
+    <string name="sports_rules_desc">Sports Rules is the perfect app for PE Teachers, Coaches, Athletes or anyone interested in swift easy reference of popular sports and their associated rules.</string>
+    <string name="swim_games_desc">SwimGames is a quick reference guide for a variety of games to play in the swimming pool. Teachers, Instructors and Parents can confidently and quickly look up fun games to play in their classes.</string>
+    <string name="easy_portfolio_desc">"Perfect app for use in the classroom. The ability to capture student learning is excellent. It will make parent teacher interviews truly powerful". Easy Portfolio is the easiest and most powerful way to create an ePortfolio. Let your digital and analog work shine with this professional and truly gorgeous tool. Capture and share your work with ease.</string>
+    <string name="easy_assessment_desc">Easy Assessment is the app teachers, trainers and coaches have been waiting for. A simple way to capture and assess performance in any context or situation. Experience a new level of efficiency.</string>
+    
+    <string name="pe_geek_link">https://play.google.com/store/apps/details?id=com.thepegeek.android</string>
+    <string name="fitness_tests_link">https://play.google.com/store/apps/details?id=com.thepegeekapps.fittest</string>
+    <string name="pe_games_link">https://play.google.com/store/apps/details?id=com.pe.games</string>
+    <string name="sports_rules_link">https://play.google.com/store/apps/details?id=com.sportsrules</string>
+    <string name="swim_games_link">https://play.google.com/store/apps/details?id=com.swimgames</string>
+    <string name="easy_portfolio_link">https://play.google.com/store/apps/details?id=com.thepegeekapps.easyportfolio</string>
+    <string name="easy_assessment_link">https://play.google.com/store/apps/details?id=com.thepegeekapps.easyassessment</string>
+    
+    <string name="tell_prewritten_message">Checkout the apps by The PE Geek on the Google Play Store <a>https://play.google.com/store/apps/developer?id=The+PE+Geek&amp;hl=en</a></string>
+    <string name="report_bug_template">Please describe steps to reproduce a bug:\n\n---------\nDevice: %1$s %2$s;\nOS Version:%3$s</string>
+    
+    <string-array name="hours_array">
+        <item>hour</item>
+        <item>hours</item>
+        <item>hours</item>
+    </string-array>
+    
+    <string-array name="mins_array">
+        <item>min</item>
+        <item>mins</item>
+        <item>mins</item>
+    </string-array>
+    
+    <string-array name="sorting_array">
+        <item>Activity</item>
+        <item>Date</item>
+        <item>Location</item>
+        <item>Duration</item>
+        <item>Type</item>
+    </string-array>
+    
+    <string-array name="sort_order_array">
+        <item>ASC</item>
+        <item>DESC</item>
+    </string-array>
+    
+    <string-array name="viewing_array">
+        <item>Internal Trainings</item>
+        <item>External Trainings</item>
+        <item>Between Dates</item>
+        <item>All</item>
+    </string-array>
+    
+    <string-array name="months_array">
+        <item>January</item>
+        <item>February</item>
+        <item>March</item>
+        <item>April</item>
+        <item>May</item>
+        <item>June</item>
+        <item>July</item>
+        <item>August</item>
+        <item>September</item>
+        <item>October</item>
+        <item>November</item>
+        <item>December</item>
+    </string-array>
+    
+</resources>
