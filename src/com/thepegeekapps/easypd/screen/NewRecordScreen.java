@@ -60,7 +60,18 @@ public class NewRecordScreen extends BaseScreen implements OnClickListener, OnSt
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.new_record_screen);
 		initializeViews();
-		record = new Record();
+	}
+	
+	@Override
+	protected void onResume() {
+		super.onResume();
+		if (recordStorage.getRecord() == null) {
+			record = new Record();
+			rightBtn.setText(R.string.add);
+		} else {
+			record = recordStorage.getRecord();
+			rightBtn.setText(R.string.save);
+		}
 		updateViews();
 	}
 	
@@ -169,13 +180,15 @@ public class NewRecordScreen extends BaseScreen implements OnClickListener, OnSt
 			});
 			return;
 		}
-		boolean added = dbStorage.addRecord(record);
-		if (added) {
-			showDialog(R.string.success, R.string.record_added);
+		boolean saved = (recordStorage.getRecord() == null) ? dbStorage.addRecord(record) : dbStorage.updateRecord(record);
+		if (saved) {
+			showDialog(R.string.success, (recordStorage.getRecord() == null) ? R.string.record_added : R.string.record_edited);
+			recordStorage.setRecord(null);
 			record = new Record();
+			rightBtn.setText(R.string.add);
 			updateViews();
 		} else {
-			showDialog(R.string.error, R.string.record_not_added);
+			showDialog(R.string.error, (recordStorage.getRecord() == null) ? R.string.record_not_added  :R.string.record_not_edited);
 		}
 	}
 	

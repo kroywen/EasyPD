@@ -9,11 +9,13 @@ import android.os.Bundle;
 import com.thepegeekapps.easypd.R;
 import com.thepegeekapps.easypd.storage.DatabaseStorage;
 import com.thepegeekapps.easypd.storage.ImageStorage;
+import com.thepegeekapps.easypd.storage.RecordStorage;
 
 public class BaseScreen extends Activity {
 	
 	protected DatabaseStorage dbStorage;
 	protected ImageStorage imgStorage;
+	protected RecordStorage recordStorage;
 	
 	protected ProgressDialog progressDialog;
 	
@@ -23,6 +25,7 @@ public class BaseScreen extends Activity {
 		
 		dbStorage = DatabaseStorage.getInstance(this);
 		imgStorage = ImageStorage.getInstance(this);
+		recordStorage = RecordStorage.getInstance();
 	}
 	
 	protected void showDialog(int titleResId, int messageResId) {

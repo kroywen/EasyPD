@@ -16,8 +16,10 @@
     <string name="remove_photo">Remove Photo</string>
     <string name="cancel">Cancel</string>
     <string name="success">Success</string>
-    <string name="record_added">Record Added.</string>
-    <string name="record_not_added">Something wrong. Record Not Added.</string>
+    <string name="record_added">Record added.</string>
+    <string name="record_not_added">Something wrong. Record not added.</string>
+    <string name="record_edited">Record edited.</string>
+    <string name="record_not_edited">Something wrong. Record not edited.</string>
     <string name="pd_records">PD Records</string>
     <string name="viewing">Viewing: %1$s</string>
     <string name="date">Date</string>
@@ -66,6 +68,7 @@
     <string name="upload_success">Records have been uploaded successfuly</string>
     <string name="event_type">Event Type</string>
     <string name="description">Description</string>
+    <string name="save">Save</string>
     
     <string name="more_apps">More Apps</string>
     <string name="support">Support</string>

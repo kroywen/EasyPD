@@ -7,10 +7,10 @@ import android.app.Service;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.ContextMenu;
+import android.view.ContextMenu.ContextMenuInfo;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ContextMenu.ContextMenuInfo;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -107,19 +107,22 @@ public class RecordsScreen extends BaseScreen implements OnClickListener {
 		AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) menuInfo;
 		Record record = adapter.getItem(info.position);
 		menu.setHeaderTitle(record.getName());
-//		menu.add(0, MENU_EDIT, 0, R.string.edit);
+		menu.add(0, MENU_EDIT, 0, R.string.edit);
 		menu.add(0, MENU_DELETE, 0, R.string.delete);
 	}
 	
+	@SuppressWarnings("deprecation")
 	@Override
 	public boolean onContextItemSelected(MenuItem item) {
+		AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
+		Record record = adapter.getItem(info.position);
 		switch(item.getItemId()) {
 		case MENU_EDIT:
-			// TODO
+			recordStorage.setRecord(record);
+			MainScreen parent = (MainScreen) getParent();
+			parent.getTabHost().setCurrentTab(0);
 			return true;
 		case MENU_DELETE:
-			AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
-			Record record = adapter.getItem(info.position);
 			dbStorage.deleteRecord(record);
 			records = dbStorage.getRecords();
 			adapter.setRecords(records);
