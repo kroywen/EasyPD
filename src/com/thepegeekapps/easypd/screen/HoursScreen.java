@@ -1,6 +1,8 @@
 package com.thepegeekapps.easypd.screen;
 
 import java.io.ByteArrayInputStream;
+import java.io.File;
+import java.io.FileInputStream;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -513,8 +515,12 @@ public class HoursScreen extends BaseScreen implements OnClickListener {
 				String rootFolder = "/Easy PD";
 				try { mApi.createFolder(rootFolder); } catch (Exception e) { e.printStackTrace(); }
 				
+				String recordsFolder = rootFolder + "/" + Utils.formatRecordFilename(System.currentTimeMillis());
+				try { mApi.createFolder(recordsFolder); } catch (Exception e) { e.printStackTrace(); }
+				
+				// Export records CSV
 				filename = "Professional Development Record - " + Utils.formatRecordFilename(System.currentTimeMillis()) + ".csv";
-				String recordPath = rootFolder + "/" + filename;
+				String recordPath = recordsFolder + "/" + filename;
 				String recordsCSV = getRecordsCSV();
 				
 				ByteArrayInputStream bais = new ByteArrayInputStream(recordsCSV.getBytes());
@@ -530,6 +536,30 @@ public class HoursScreen extends BaseScreen implements OnClickListener {
 				} finally {
 					if (bais != null)
 						bais.close();
+				}
+				
+				// Export record's images
+				for (Record record : viewingRecords) {
+					if (record.hasImage()) {
+						File file = imgStorage.loadImageFile(record.getImageUrl());
+						if (file != null && file.exists()) {
+							FileInputStream is = new FileInputStream(file);
+							try {
+								String imagePath = recordsFolder + "/" + record.getName() + ".png";
+								mApi.putFileOverwrite(imagePath, is, file.length(), new ProgressListener() {
+									@Override
+									public void onProgress(long bytes, long total) {
+										publishProgress(bytes, total);
+									}
+								});
+							} catch (Exception e) {
+								e.printStackTrace();
+							} finally {
+								if (is != null)
+									is.close();
+							}
+						}
+					}
 				}
 				
 			} catch (Exception e) {

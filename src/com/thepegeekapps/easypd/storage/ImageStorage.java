@@ -1,6 +1,7 @@
 package com.thepegeekapps.easypd.storage;
 
 import java.io.ByteArrayOutputStream;
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 
@@ -94,6 +95,17 @@ public class ImageStorage {
             }
         }
         return null;
+    }
+    
+    public File loadImageFile(String filename) {
+    	File file = null;
+    	try {
+    		file = context.getFileStreamPath(filename);
+    		return file;
+    	} catch (Exception e) {
+    		e.printStackTrace();
+    	}
+    	return null;
     }
 
 }
