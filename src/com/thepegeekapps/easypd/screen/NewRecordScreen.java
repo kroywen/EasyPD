@@ -24,6 +24,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.ViewFlipper;
 
 import com.thepegeekapps.easypd.R;
 import com.thepegeekapps.easypd.model.Record;
@@ -203,65 +204,130 @@ public class NewRecordScreen extends BaseScreen implements OnClickListener, OnSt
 		record.setType(newState);
 	}
 	
+	@SuppressWarnings("deprecation")
 	protected void showSelectStartDateDialog() {
 		LayoutInflater inflater = (LayoutInflater) getSystemService(Service.LAYOUT_INFLATER_SERVICE);
 		ViewGroup dialogView = (ViewGroup) inflater.inflate(R.layout.select_start_date_dialog, null);
 		
-		String[] dateItems = Utils.getDateItems(record.getStartDate());
-		final WheelView dateWheel = (WheelView) dialogView.findViewById(R.id.date);
-		ArrayWheelAdapter<String> dateAdapter = new ArrayWheelAdapter<String>(this, dateItems);
-		dateAdapter.setTextSize(18);
-		dateWheel.setViewAdapter(dateAdapter);
-		dateWheel.setCurrentItem(Utils.getDatePosition(record.getStartDate()));
+		final Date date = new Date(record.getStartDate());
+		
+		final WheelView dayWheel = (WheelView) dialogView.findViewById(R.id.dayWheel);
+		ArrayWheelAdapter<String> dayAdapter = new ArrayWheelAdapter<String>(this, 
+				Utils.getDaysInMonth(date.getMonth(), date.getYear()));
+		dayAdapter.setTextSize(18);
+		dayWheel.setViewAdapter(dayAdapter);
+		dayWheel.setCurrentItem(date.getDate()-1);
+		
+		final WheelView monthWheel = (WheelView) dialogView.findViewById(R.id.monthWheel);
+		ArrayWheelAdapter<String> monthAdapter = new ArrayWheelAdapter<String>(this, getResources().getStringArray(R.array.months_array));
+		monthAdapter.setTextSize(18);
+		monthWheel.setViewAdapter(monthAdapter);
+		monthWheel.setCurrentItem(date.getMonth());
+		monthWheel.addChangingListener(new OnWheelChangedListener() {
+			@Override
+			public void onChanged(WheelView wheel, int oldValue, int newValue) {
+				date.setMonth(newValue);
+				String[] daysInMonth = Utils.getDaysInMonth(date.getMonth(), date.getYear());
+				ArrayWheelAdapter<String> dayAdapter = new ArrayWheelAdapter<String>(NewRecordScreen.this, daysInMonth);
+				dayAdapter.setTextSize(18);
+				dayWheel.setViewAdapter(dayAdapter);
+				if (date.getDate() < daysInMonth.length)
+					dayWheel.setCurrentItem(date.getDate());
+				else
+					dayWheel.setCurrentItem(daysInMonth.length-1);
+			}
+		});
+		
+		final WheelView yearWheel = (WheelView) dialogView.findViewById(R.id.yearWheel);
+		ArrayWheelAdapter<String> yearAdapter = new ArrayWheelAdapter<String>(this, 
+				Utils.getYears(date.getYear()));
+		yearAdapter.setTextSize(18);
+		yearWheel.setViewAdapter(yearAdapter);
+		yearWheel.setCurrentItem(date.getYear());
+		yearWheel.addChangingListener(new OnWheelChangedListener() {
+			@Override
+			public void onChanged(WheelView wheel, int oldValue, int newValue) {
+				date.setYear(newValue);
+				String[] daysInMonth = Utils.getDaysInMonth(monthWheel.getCurrentItem(), date.getYear());
+				ArrayWheelAdapter<String> dayAdapter = new ArrayWheelAdapter<String>(NewRecordScreen.this, daysInMonth);
+				dayAdapter.setTextSize(18);
+				dayWheel.setViewAdapter(dayAdapter);
+				if (date.getDate() < daysInMonth.length)
+					dayWheel.setCurrentItem(date.getDate());
+				else
+					dayWheel.setCurrentItem(daysInMonth.length-1);
+			}
+		});
 		
 		final WheelView ampmWheel = (WheelView) dialogView.findViewById(R.id.ampmWheel);
 		ArrayWheelAdapter<String> ampmAdapter = new ArrayWheelAdapter<String>(this, Utils.ampmItems);
 		ampmAdapter.setTextSize(18);
 		ampmWheel.setViewAdapter(ampmAdapter);
-		ampmWheel.setCurrentItem(Utils.getAmpm(record.getStartDate()));
+		ampmWheel.setCurrentItem(Utils.getAmpm(date.getTime()));
 		ampmWheel.setEnabled(false);
 		
-		final WheelView hoursWheel = (WheelView) dialogView.findViewById(R.id.hours);
+		final WheelView hoursWheel = (WheelView) dialogView.findViewById(R.id.hoursWheel);
 		ArrayWheelAdapter<String> hoursAdapter = new ArrayWheelAdapter<String>(this, Utils.getHoursItems());
 		hoursAdapter.setTextSize(18);
 		hoursWheel.setViewAdapter(hoursAdapter);
-		hoursWheel.setCurrentItem(Utils.getHours(record.getStartDate()));
+		hoursWheel.setCurrentItem(Utils.getHours(date.getTime()));
 		hoursWheel.addChangingListener(new OnWheelChangedListener() {
 			@Override
 			public void onChanged(WheelView wheel, int oldValue, int newValue) {
+				date.setHours(newValue);
 				ampmWheel.setCurrentItem(newValue < 12 ? 0 : 1, true);
 			}
 		});
 		
-		final WheelView minutesWheel = (WheelView) dialogView.findViewById(R.id.minutes);
+		final WheelView minutesWheel = (WheelView) dialogView.findViewById(R.id.minutesWheel);
 		ArrayWheelAdapter<String> minutesAdapter = new ArrayWheelAdapter<String>(this, Utils.getMinutesItems());
 		minutesAdapter.setTextSize(18);
 		minutesWheel.setViewAdapter(minutesAdapter);
-		minutesWheel.setCurrentItem(Utils.getMinutes(record.getStartDate()));
+		minutesWheel.setCurrentItem(Utils.getMinutes(date.getTime()));
+		minutesWheel.addChangingListener(new OnWheelChangedListener() {
+			@Override
+			public void onChanged(WheelView wheel, int oldValue, int newValue) {
+				date.setMinutes(newValue);
+			}
+		});
+		
+		
+		final ViewFlipper flipper = (ViewFlipper) dialogView.findViewById(R.id.flipper);
+		
+		Button timeBtn = (Button) dialogView.findViewById(R.id.timeBtn);
+		timeBtn.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				flipper.setInAnimation(NewRecordScreen.this, R.anim.slide_in_left);
+				flipper.setOutAnimation(NewRecordScreen.this, R.anim.slide_out_left);
+				flipper.showNext();
+			}
+		});
+		
+		Button dateBtn = (Button) dialogView.findViewById(R.id.dateBtn);
+		dateBtn.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				flipper.setInAnimation(NewRecordScreen.this,  R.anim.slide_in_right);
+				flipper.setOutAnimation(NewRecordScreen.this, R.anim.slide_out_right);
+				flipper.showPrevious();
+			}
+		});
 		
 		AlertDialog.Builder builder = new AlertDialog.Builder(this);
 		builder.setView(dialogView)
-		.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
-			@SuppressWarnings("deprecation")
-			@Override
-			public void onClick(DialogInterface dialog, int which) {
-				Date date = Utils.getDate(dateWheel.getCurrentItem());
-				if (date != null) {
-					Date selected = new Date();
-					selected.setYear(date.getYear());
-					selected.setMonth(date.getMonth());
-					selected.setDate(date.getDate());
-					selected.setHours(hoursWheel.getCurrentItem());
-					selected.setMinutes(minutesWheel.getCurrentItem());
-					record.setStartDate(selected.getTime());
-					updateStartDate();
-				}
-				dialog.dismiss();
-			}
-		})
 		.setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
 			@Override
 			public void onClick(DialogInterface dialog, int which) {
+				dialog.dismiss();
+			}
+		})
+		.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
+			@Override
+			public void onClick(DialogInterface dialog, int which) {
+				date.setDate(dayWheel.getCurrentItem()+1);
+				record.setStartDate(date.getTime());
+				updateStartDate();
 				dialog.dismiss();
 			}
 		})

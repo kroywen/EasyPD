@@ -105,7 +105,12 @@
     <string name="easy_assessment_link">https://play.google.com/store/apps/details?id=com.thepegeekapps.easyassessment</string>
     
     <string name="tell_prewritten_message">Checkout the apps by The PE Geek on the Google Play Store <a>https://play.google.com/store/apps/developer?id=The+PE+Geek&amp;hl=en</a></string>
-    <string name="report_bug_template">Please describe steps to reproduce a bug:\n\n---------\nDevice: %1$s %2$s;\nOS Version:%3$s</string>
+    <!-- <string name="tell_prewritten_message">Checkout the Easy PD app on <a>http://thepegeekapps.com/pd/</a></string> -->
+    <string name="report_bug_template">Please describe steps to reproduce a bug:\n\n---------\nDevice: %1$s %2$s;\nOS Version: %3$s</string>
+    
+    <string name="time">Time</string>
+    <string name="set_date">Set Date</string>
+    <string name="set_time">Set Time</string>
     
     <string-array name="hours_array">
         <item>hour</item>

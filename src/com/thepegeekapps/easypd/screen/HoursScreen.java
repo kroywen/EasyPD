@@ -229,31 +229,34 @@ public class HoursScreen extends BaseScreen implements OnClickListener {
 	protected String getTotalTime() {
 		int hours = 0;
 		int minutes = 0;
-		for (Record record : records) {
-			switch (viewing.getViewing()) {
-			case Viewing.VIEW_ALL:
-				hours += record.getHours();
-				minutes += record.getMinutes();
-				break;
-			case Viewing.VIEW_INTERNAL:
-				if (record.getType() == Record.TYPE_INTERNAL) {
+		if (!Utils.isEmpty(records)) {
+			for (int i=0; i<records.size(); i++) {
+				Record record = records.get(i);
+				switch (viewing.getViewing()) {
+				case Viewing.VIEW_ALL:
 					hours += record.getHours();
 					minutes += record.getMinutes();
+					break;
+				case Viewing.VIEW_INTERNAL:
+					if (record.getType() == Record.TYPE_INTERNAL) {
+						hours += record.getHours();
+						minutes += record.getMinutes();
+					}
+					break;
+				case Viewing.VIEW_EXTERNAL:
+					if (record.getType() == Record.TYPE_EXTERNAL) {
+						hours += record.getHours();
+						minutes += record.getMinutes();
+					}
+					break;
+				case Viewing.VIEW_BETWEEN_DATES:
+					Date date = new Date(record.getStartDate());
+					if (date.after(viewing.getFrom()) && date.before(viewing.getTo())) {
+						hours += record.getHours();
+						minutes += record.getMinutes();
+					}
+					break;
 				}
-				break;
-			case Viewing.VIEW_EXTERNAL:
-				if (record.getType() == Record.TYPE_EXTERNAL) {
-					hours += record.getHours();
-					minutes += record.getMinutes();
-				}
-				break;
-			case Viewing.VIEW_BETWEEN_DATES:
-				Date date = new Date(record.getStartDate());
-				if (date.after(viewing.getFrom()) && date.before(viewing.getTo())) {
-					hours += record.getHours();
-					minutes += record.getMinutes();
-				}
-				break;
 			}
 		}
 		hours += (int) (minutes / 60);

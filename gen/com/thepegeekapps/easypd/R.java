@@ -82,11 +82,13 @@ containing a value of this type.
         public static final int wheel_val=0x7f020026;
     }
     public static final class id {
-        public static final int ampmWheel=0x7f080027;
-        public static final int btnRight1=0x7f08002c;
-        public static final int btnRight2=0x7f08002d;
+        public static final int ampmWheel=0x7f08002e;
+        public static final int btnRight1=0x7f080033;
+        public static final int btnRight2=0x7f080034;
         public static final int contactUs=0x7f080001;
         public static final int date=0x7f080018;
+        public static final int dateBtn=0x7f08002b;
+        public static final int dayWheel=0x7f080029;
         public static final int duration=0x7f080013;
         public static final int easyAssessment=0x7f08000b;
         public static final int easyPortfolio=0x7f08000a;
@@ -99,27 +101,31 @@ containing a value of this type.
         public static final int fromMonthWheel=0x7f08001d;
         public static final int fromYearWheel=0x7f08001f;
         public static final int hours=0x7f080025;
+        public static final int hoursWheel=0x7f08002c;
         public static final int image=0x7f080016;
-        public static final int leftThumb=0x7f080028;
+        public static final int leftThumb=0x7f08002f;
         public static final int list=0x7f080019;
         public static final int location=0x7f080010;
         public static final int minutes=0x7f080026;
+        public static final int minutesWheel=0x7f08002d;
+        public static final int monthWheel=0x7f080028;
         public static final int name=0x7f08000f;
         public static final int noImage=0x7f080017;
         public static final int peGames=0x7f080007;
         public static final int peGeek=0x7f080005;
         public static final int reportBug=0x7f080003;
         public static final int ribbon=0x7f08000e;
-        public static final int rightThumb=0x7f08002a;
+        public static final int rightThumb=0x7f080031;
         public static final int second=0x7f080020;
         public static final int selectActionBtn=0x7f080015;
         public static final int sportsRules=0x7f080008;
         public static final int startDate=0x7f080012;
         public static final int swimGames=0x7f080009;
         public static final int tellFriend=0x7f080004;
-        public static final int text=0x7f080029;
+        public static final int text=0x7f080030;
+        public static final int timeBtn=0x7f080027;
         public static final int title=0x7f080000;
-        public static final int titleView=0x7f08002b;
+        public static final int titleView=0x7f080032;
         public static final int toBtn=0x7f08001c;
         public static final int toDayWheel=0x7f080023;
         public static final int toMonthWheel=0x7f080022;
@@ -128,6 +134,7 @@ containing a value of this type.
         public static final int type=0x7f080011;
         public static final int viewingBtn=0x7f08000c;
         public static final int visitWebsite=0x7f080002;
+        public static final int yearWheel=0x7f08002a;
     }
     public static final class layout {
         public static final int about_screen=0x7f030000;
@@ -213,12 +220,16 @@ containing a value of this type.
         public static final int records=0x7f05001e;
         public static final int remove_photo=0x7f05000c;
         public static final int report_a_bug=0x7f050049;
+        /**  <string name="tell_prewritten_message">Checkout the Easy PD app on <a>http://thepegeekapps.com/pd/</a></string> 
+         */
         public static final int report_bug_template=0x7f050063;
         public static final int save=0x7f050043;
         public static final int select_action=0x7f050008;
         public static final int select_from_library=0x7f05000b;
         public static final int select_method=0x7f05002b;
         public static final int select_option=0x7f050009;
+        public static final int set_date=0x7f050065;
+        public static final int set_time=0x7f050066;
         public static final int show=0x7f050026;
         public static final int sort=0x7f050027;
         public static final int sports_rules=0x7f050050;
@@ -233,6 +244,7 @@ containing a value of this type.
         public static final int take_photo=0x7f05000a;
         public static final int tell_a_friend=0x7f05004a;
         public static final int tell_prewritten_message=0x7f050062;
+        public static final int time=0x7f050064;
         public static final int to=0x7f050025;
         public static final int type=0x7f05002a;
         public static final int upload_error=0x7f05003e;

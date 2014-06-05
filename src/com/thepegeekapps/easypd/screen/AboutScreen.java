@@ -106,6 +106,7 @@ public class AboutScreen extends BaseScreen implements OnClickListener {
 			break;
 		case R.id.easyAssessment:
 			showApp(easyAssessment.getTag().toString());
+			break;
 		}
 	}
 	
@@ -139,7 +140,6 @@ public class AboutScreen extends BaseScreen implements OnClickListener {
 	protected void tellFriend() {
 		Intent intent = new Intent(Intent.ACTION_SEND);
 		intent.setType("message/rfc822");
-		intent.putExtra(Intent.EXTRA_EMAIL, new String[] {"support@thepegeekapps.com"});
 		intent.putExtra(Intent.EXTRA_TEXT, getString(R.string.tell_prewritten_message));
 		startActivity(Intent.createChooser(intent, getString(R.string.email_app_select)));
 	}

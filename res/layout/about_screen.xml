@@ -69,6 +69,7 @@
         style="@style/AboutListItem"
         android:drawableLeft="@drawable/contact_us_icon"
         android:text="@string/tell_a_friend" />
+    <View style="@style/ListDivider" />
     
     <!-- 
     <TextView
@@ -77,6 +78,7 @@
         android:drawableLeft="@drawable/video"
         android:text="@string/watch_video_tutorial" />
      -->
+    
     
      <TextView
         android:layout_width="match_parent"

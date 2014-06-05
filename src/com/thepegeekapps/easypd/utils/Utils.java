@@ -3,6 +3,7 @@ package com.thepegeekapps.easypd.utils;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 import java.util.Locale;
 
 import android.content.Context;
@@ -279,6 +280,10 @@ public class Utils {
 			durationText += quantityText(record.getMinutes(), context.getResources().getStringArray(R.array.mins_array));
 		}
 		return durationText;
+	}
+	
+	public static boolean isEmpty(List<?> list) {
+		return (list == null || list.isEmpty());
 	}
 
 }
